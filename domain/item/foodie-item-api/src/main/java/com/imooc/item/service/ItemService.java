@@ -4,6 +4,7 @@ import com.imooc.item.pojo.*;
 import com.imooc.item.pojo.vo.CommentLevelCountsVO;
 import com.imooc.item.pojo.vo.ShopcartVO;
 import com.imooc.pojo.PagedGridResult;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import java.util.List;
  * 对外提供服务，继承该接口的实现类也可以对外提供服务
  * 有利于服务之间调用
  */
+@FeignClient("foodie-item-service")
 @RequestMapping("item-api")
 public interface ItemService {
 

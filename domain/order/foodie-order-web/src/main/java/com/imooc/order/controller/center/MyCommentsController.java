@@ -2,6 +2,7 @@ package com.imooc.order.controller.center;
 
 import com.imooc.controller.BaseController;
 import com.imooc.enums.YesOrNo;
+import com.imooc.item.service.ItemCommmentsService;
 import com.imooc.order.pojo.OrderItems;
 import com.imooc.order.pojo.Orders;
 import com.imooc.order.pojo.bo.center.OrderItemsCommentBO;
@@ -29,6 +30,9 @@ public class MyCommentsController extends BaseController {
 
     @Autowired
     private MyCommentsService myCommentsService;
+
+//    @Autowired
+//    private ItemCommmentsService itemsCommentsService;
 
     @Autowired
     private MyOrdersService myOrdersService;
@@ -109,7 +113,7 @@ public class MyCommentsController extends BaseController {
             pageSize = COMMON_PAGE_SIZE;
         }
 
-//        PagedGridResult grid = myCommentsService.queryMyComments(userId,
+//        PagedGridResult grid = itemsCommentsService.queryMyComments(userId,
 //                page,
 //                pageSize);
 

@@ -2,9 +2,11 @@ package com.imooc.user.service.center;
 
 import com.imooc.user.pojo.Users;
 import com.imooc.user.pojo.bo.center.CenterUserBO;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("center-user-api")
+@FeignClient("foodie-user-service")
 public interface CenterUserService {
 
     /**

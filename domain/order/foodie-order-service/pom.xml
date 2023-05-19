@@ -46,7 +46,7 @@
             <version>${project.version}</version>
         </dependency>
 
-<!--        todo 学到feign后，再删除-->
+<!--         学到feign后，再删除-->
 <!--        目前因为该微服务需要调用其他微服务的接口，所以需要安装eureka的客户端-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

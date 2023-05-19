@@ -4,6 +4,7 @@ import com.imooc.enums.OrderStatusEnum;
 import com.imooc.enums.YesOrNo;
 import com.imooc.item.pojo.Items;
 import com.imooc.item.pojo.ItemsSpec;
+import com.imooc.item.service.ItemService;
 import com.imooc.order.mapper.OrderItemsMapper;
 import com.imooc.order.mapper.OrderStatusMapper;
 import com.imooc.order.mapper.OrdersMapper;
@@ -17,6 +18,7 @@ import com.imooc.order.pojo.vo.MerchantOrdersVO;
 import com.imooc.order.pojo.vo.OrderVO;
 import com.imooc.user.pojo.UserAddress;
 import com.imooc.order.service.OrderService;
+import com.imooc.user.service.AddressService;
 import com.imooc.utils.DateUtil;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,17 +45,16 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderStatusMapper orderStatusMapper;
 
-    //todo 学习里fegin再把注解打开
-//    @Autowired
-//    private AddressService addressService;
-//    @Autowired
-//    private ItemService itemService;
-
     @Autowired
-    private LoadBalancerClient loadBalancerClient;
-
+    private AddressService addressService;
     @Autowired
-    private RestTemplate restTemplate;
+    private ItemService itemService;
+
+//    @Autowired
+//    private LoadBalancerClient loadBalancerClient;
+//
+//    @Autowired
+//    private RestTemplate restTemplate;
 
     @Autowired
     private Sid sid;
@@ -74,15 +75,15 @@ public class OrderServiceImpl implements OrderService {
 
         String orderId = sid.nextShort();
 
-        // fixme 等学习fegin再优化
-        //UserAddress address = addressService.queryUserAddres(userId, addressId);
-        ServiceInstance instance = loadBalancerClient.choose("foodie-user-service");
-        String url = String.format("http://%s:%s/address-api/queryAddress"+
-                        "?userId=%s&addressId=%s",
-                instance.getHost(),
-                instance.getPort(),
-                userId,addressId);
-        UserAddress address = restTemplate.getForObject(url,UserAddress.class);
+        //等学习fegin再优化
+        UserAddress address = addressService.queryUserAddres(userId, addressId);
+//        ServiceInstance instance = loadBalancerClient.choose("foodie-user-service");
+//        String url = String.format("http://%s:%s/address-api/queryAddress"+
+//                        "?userId=%s&addressId=%s",
+//                instance.getHost(),
+//                instance.getPort(),
+//                userId,addressId);
+//        UserAddress address = restTemplate.getForObject(url,UserAddress.class);
 
         // 1. 新订单数据保存
         Orders newOrder = new Orders();
@@ -121,38 +122,38 @@ public class OrderServiceImpl implements OrderService {
             toBeRemovedShopcatdList.add(cartItem);
 
             // 2.1 根据规格id，查询规格的具体信息，主要获取价格
-            // fixme 等学习fegin再优化
-//            ItemsSpec itemSpec = itemService.queryItemSpecById(itemSpecId);
-            ServiceInstance instanceItem = loadBalancerClient.choose("foodie-item-service");
-            url = String.format("http://%s:%s/item-api/singleItemSpec"+
-                            "?specId=%s",
-                    instanceItem.getHost(),
-                    instanceItem.getPort(),
-                    itemSpecId);
-            ItemsSpec itemSpec = restTemplate.getForObject(url,ItemsSpec.class);
+            //等学习fegin再优化
+            ItemsSpec itemSpec = itemService.queryItemSpecById(itemSpecId);
+//            ServiceInstance instanceItem = loadBalancerClient.choose("foodie-item-service");
+//            url = String.format("http://%s:%s/item-api/singleItemSpec"+
+//                            "?specId=%s",
+//                    instanceItem.getHost(),
+//                    instanceItem.getPort(),
+//                    itemSpecId);
+//            ItemsSpec itemSpec = restTemplate.getForObject(url,ItemsSpec.class);
 
             totalAmount += itemSpec.getPriceNormal() * buyCounts;
             realPayAmount += itemSpec.getPriceDiscount() * buyCounts;
 
             // 2.2 根据商品id，获得商品信息以及商品图片
             String itemId = itemSpec.getItemId();
-            // fixme 等学习fegin再优化
-//            Items item = itemService.queryItemById(itemId);
-            url = String.format("http://%s:%s/item-api/item"+
-                            "?itemId=%s",
-                    instanceItem.getHost(),
-                    instanceItem.getPort(),
-                    itemSpecId);
-            Items item = restTemplate.getForObject(url,Items.class);
+            // 等学习fegin再优化
+            Items item = itemService.queryItemById(itemId);
+//            url = String.format("http://%s:%s/item-api/item"+
+//                            "?itemId=%s",
+//                    instanceItem.getHost(),
+//                    instanceItem.getPort(),
+//                    itemSpecId);
+//            Items item = restTemplate.getForObject(url,Items.class);
 
-            // fixme 等学习fegin再优化
-//            String imgUrl = itemService.queryItemMainImgById(itemId);
-            url = String.format("http://%s:%s/item-api/primaryImage"+
-                            "?itemId=%s",
-                    instanceItem.getHost(),
-                    instanceItem.getPort(),
-                    itemId);
-            String imgUrl = restTemplate.getForObject(url,String.class);
+            // 等学习fegin再优化
+            String imgUrl = itemService.queryItemMainImgById(itemId);
+//            url = String.format("http://%s:%s/item-api/primaryImage"+
+//                            "?itemId=%s",
+//                    instanceItem.getHost(),
+//                    instanceItem.getPort(),
+//                    itemId);
+//            String imgUrl = restTemplate.getForObject(url,String.class);
 
             // 2.3 循环保存子订单数据到数据库
             String subOrderId = sid.nextShort();
@@ -169,14 +170,14 @@ public class OrderServiceImpl implements OrderService {
             orderItemsMapper.insert(subOrderItem);
 
             // 2.4 在用户提交订单以后，规格表中需要扣除库存
-            // fixme 等学习fegin再优化
-//            itemService.decreaseItemSpecStock(itemSpecId, buyCounts);
-            url = String.format("http://%s:%s/item-api/decreaseStock"+
-                            "?specId=%s&buyCounts=%s",
-                    instanceItem.getHost(),
-                    instanceItem.getPort(),
-                    itemSpecId,buyCounts);
-            restTemplate.delete(url);
+            // 等学习fegin再优化
+            itemService.decreaseItemSpecStock(itemSpecId, buyCounts);
+//            url = String.format("http://%s:%s/item-api/decreaseStock"+
+//                            "?specId=%s&buyCounts=%s",
+//                    instanceItem.getHost(),
+//                    instanceItem.getPort(),
+//                    itemSpecId,buyCounts);
+//            restTemplate.delete(url);
         }
 
         newOrder.setTotalAmount(totalAmount);

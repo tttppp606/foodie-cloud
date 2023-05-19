@@ -1,6 +1,7 @@
 package com.imooc.order.service.impl.center;
 
 import com.imooc.enums.YesOrNo;
+import com.imooc.item.service.ItemCommmentsService;
 import com.imooc.order.mapper.OrderItemsMapper;
 import com.imooc.order.mapper.OrderStatusMapper;
 import com.imooc.order.mapper.OrdersMapper;
@@ -14,7 +15,6 @@ import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,17 +37,18 @@ public class MyCommentsServiceImpl extends BaseService implements MyCommentsServ
     @Autowired
     public OrderStatusMapper orderStatusMapper;
 
-//    @Autowired
-//    public ItemsCommentsMapperCustom itemsCommentsMapperCustom;
-
     //引用里其他微服务的mapper，不能再pom中添加其他微服务的mapper，再@Autowired
     //需要用eureka进行远程调用
-    // todo fegin章节再改
+    //  fegin章节再改
     @Autowired
     public LoadBalancerClient loadBalancerClient;
 
     @Autowired
     public RestTemplate restTemplate;
+
+    /* feign调用 */
+//    @Autowired
+//    private ItemCommmentsService itemCommmentsService;
 
     @Autowired
     private Sid sid;
@@ -72,7 +73,6 @@ public class MyCommentsServiceImpl extends BaseService implements MyCommentsServ
         Map<String, Object> map = new HashMap<>();
         map.put("userId", userId);
         map.put("commentList", commentList);
-//        itemsCommentsMapperCustom.saveComments(map);
 
         ServiceInstance instance = loadBalancerClient.choose("foodie-item-service");
         /**
@@ -83,6 +83,8 @@ public class MyCommentsServiceImpl extends BaseService implements MyCommentsServ
                 instance.getHost(),
                 instance.getPort());
         restTemplate.postForLocation(url,map);
+
+//        itemCommmentsService.saveComments(map);
 
 
         // 2. 修改订单表改已评价 orders

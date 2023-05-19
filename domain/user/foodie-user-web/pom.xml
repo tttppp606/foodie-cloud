@@ -30,6 +30,7 @@
             <version>${project.version}</version>
         </dependency>
 
+        <!--        需要eureka到注册中心，并且可以被其他微服务发现-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>

@@ -38,6 +38,9 @@ spring:
     multipart:
       max-file-size: 512000     # 文件上传大小限制为500kb
       max-request-size: 512000  # 请求大小限制为500kb
+  # feign bean名字相同，允许覆盖
+  main:
+    allow-bean-definition-overriding: true
 
 ############################################################
 #

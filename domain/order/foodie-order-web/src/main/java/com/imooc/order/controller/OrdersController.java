@@ -104,6 +104,7 @@ public class OrdersController extends BaseController {
         HttpEntity<MerchantOrdersVO> entity =
                 new HttpEntity<>(merchantOrdersVO, headers);
 
+        // todo 支付中心改造微服务后，利用feign进行调用
         ResponseEntity<IMOOCJSONResult> responseEntity =
                 restTemplate.postForEntity(paymentUrl,
                                             entity,
