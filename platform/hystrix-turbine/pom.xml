@@ -7,10 +7,11 @@
         <groupId>com.imooc</groupId>
         <artifactId>foodie-cloud</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../../../pom.xml</relativePath>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>foodie-order-web</artifactId>
+    <artifactId>hystrix-turbine</artifactId>
+    <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -20,32 +21,24 @@
 
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>foodie-order-service</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-<!--        不可随便乱加依赖，本模块与foodie-item-service模块之间是feign通讯，
-            此处再加，foodie-item-service模块下的类会加载两次-->
-<!--        <dependency>-->
-<!--            <groupId>${project.groupId}</groupId>-->
-<!--            <artifactId>foodie-item-service</artifactId>-->
-<!--            <version>${project.version}</version>-->
-<!--        </dependency>-->
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>foodie-cloud-web-components</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-<!--        需要eureka到注册中心，并且可以被其他微服务发现-->
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-<!--        用于服务降级、熔断、turbine 监控       -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-actuator</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <artifactId>spring-cloud-starter-netflix-turbine</artifactId>
         </dependency>
     </dependencies>
 
@@ -60,7 +53,7 @@
                 <version>2.7.9</version>
                 <!--                <mainClass></mainClass>指定manifest文件里主方法-->
                 <configuration>
-                    <mainClass>com.imooc.item.OrderApplication</mainClass>
+                    <mainClass>com.imooc.HystrixTurbineApplication</mainClass>
                 </configuration>
                 <!-- 重新打包，把所有依赖都打进 jar 包中，这样打出来的包就可以直接独立运行，因为里面包含了所有依赖 -->
                 <executions>

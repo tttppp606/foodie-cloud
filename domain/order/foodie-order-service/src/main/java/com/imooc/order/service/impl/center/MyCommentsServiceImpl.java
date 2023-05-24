@@ -40,15 +40,15 @@ public class MyCommentsServiceImpl extends BaseService implements MyCommentsServ
     //引用里其他微服务的mapper，不能再pom中添加其他微服务的mapper，再@Autowired
     //需要用eureka进行远程调用
     //  fegin章节再改
-    @Autowired
-    public LoadBalancerClient loadBalancerClient;
-
-    @Autowired
-    public RestTemplate restTemplate;
+//    @Autowired
+//    public LoadBalancerClient loadBalancerClient;
+//
+//    @Autowired
+//    public RestTemplate restTemplate;
 
     /* feign调用 */
-//    @Autowired
-//    private ItemCommmentsService itemCommmentsService;
+    @Autowired
+    private ItemCommmentsService itemCommmentsService;
 
     @Autowired
     private Sid sid;
@@ -74,17 +74,17 @@ public class MyCommentsServiceImpl extends BaseService implements MyCommentsServ
         map.put("userId", userId);
         map.put("commentList", commentList);
 
-        ServiceInstance instance = loadBalancerClient.choose("foodie-item-service");
-        /**
-         * 服务消费者通过eureka的注册中心（LoadBalancerClient）
-         * 获取到类服务客户端的ip和端口，进行通讯
-         */
-        String url = String.format("http://%s:%s/item-comments-api/saveComments",
-                instance.getHost(),
-                instance.getPort());
-        restTemplate.postForLocation(url,map);
+//        ServiceInstance instance = loadBalancerClient.choose("foodie-item-service");
+//        /**
+//         * 服务消费者通过eureka的注册中心（LoadBalancerClient）
+//         * 获取到类服务客户端的ip和端口，进行通讯
+//         */
+//        String url = String.format("http://%s:%s/item-comments-api/saveComments",
+//                instance.getHost(),
+//                instance.getPort());
+//        restTemplate.postForLocation(url,map);
 
-//        itemCommmentsService.saveComments(map);
+        itemCommmentsService.saveComments(map);
 
 
         // 2. 修改订单表改已评价 orders

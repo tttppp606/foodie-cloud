@@ -15,7 +15,6 @@ import tk.mybatis.spring.annotation.MapperScan;
 // 扫描所有包以及相关组件包
 @ComponentScan(basePackages = {"com.imooc", "org.n3r.idworker"})
 @EnableDiscoveryClient
-// TODO feign注解
 public class CartApplication {
 
     public static void main(String[] args) {

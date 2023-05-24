@@ -67,3 +67,19 @@ mapper:
 pagehelper:
   helperDialect: mysql
   supportMethodsArguments: true
+
+#######################################
+#
+#        actuator暴露接口
+#        查看hystrix监控信息http://localhost:port/actuator
+#
+########################################
+management:
+  security:
+    enabled: false  # 安全检查，待研究，先关闭
+  endpoints:
+    web:
+      exposure:
+        include: "*"  # 暴露全部
+    health:
+      show-details: always  # 顾名思义

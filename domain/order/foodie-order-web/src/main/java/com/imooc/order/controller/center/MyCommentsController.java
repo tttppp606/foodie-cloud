@@ -10,6 +10,8 @@ import com.imooc.order.service.center.MyCommentsService;
 import com.imooc.order.service.center.MyOrdersService;
 import com.imooc.pojo.IMOOCJSONResult;
 import com.imooc.pojo.PagedGridResult;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -31,17 +33,17 @@ public class MyCommentsController extends BaseController {
     @Autowired
     private MyCommentsService myCommentsService;
 
-//    @Autowired
-//    private ItemCommmentsService itemsCommentsService;
+    @Autowired
+    private ItemCommmentsService itemsCommentsService;
 
     @Autowired
     private MyOrdersService myOrdersService;
 
-    @Autowired
-    private LoadBalancerClient loadBalancerClient;
-
-    @Autowired
-    private RestTemplate restTemplate;
+//    @Autowired
+//    private LoadBalancerClient loadBalancerClient;
+//
+//    @Autowired
+//    private RestTemplate restTemplate;
 
     @ApiOperation(value = "查询订单列表", notes = "查询订单列表", httpMethod = "POST")
     @PostMapping("/pending")
@@ -72,9 +74,9 @@ public class MyCommentsController extends BaseController {
     @PostMapping("/saveList")
     public IMOOCJSONResult saveList(
             @ApiParam(name = "userId", value = "用户id", required = true)
-            @RequestParam String userId,
+            @RequestParam(value = "userId") String userId,
             @ApiParam(name = "orderId", value = "订单id", required = true)
-            @RequestParam String orderId,
+            @RequestParam(value = "orderId") String orderId,
             @RequestBody List<OrderItemsCommentBO> commentList) {
 
         System.out.println(commentList);
@@ -95,6 +97,10 @@ public class MyCommentsController extends BaseController {
 
     @ApiOperation(value = "查询我的评价", notes = "查询我的评价", httpMethod = "POST")
     @PostMapping("/query")
+    @HystrixCommand(
+            fallbackMethod = "queryFallBack",
+            commandKey = "queryCommandKey"
+            )
     public IMOOCJSONResult query(
             @ApiParam(name = "userId", value = "用户id", required = true)
             @RequestParam String userId,
@@ -113,21 +119,37 @@ public class MyCommentsController extends BaseController {
             pageSize = COMMON_PAGE_SIZE;
         }
 
-//        PagedGridResult grid = itemsCommentsService.queryMyComments(userId,
-//                page,
-//                pageSize);
-
-        ServiceInstance choose = loadBalancerClient.choose("foodie-item-service");
-        String url = String.format("http://%s:%s/item-comments-api/myComments" +
-                        "?userId=%s&page=%s&pageSize=%s",
-                choose.getHost(),
-                choose.getPort(),
-                userId,
+        PagedGridResult grid = itemsCommentsService.queryMyComments(userId,
                 page,
                 pageSize);
-        PagedGridResult grid = restTemplate.getForObject(url, PagedGridResult.class);
 
+//        ServiceInstance choose = loadBalancerClient.choose("foodie-item-service");
+//        String url = String.format("http://%s:%s/item-comments-api/myComments" +
+//                        "?userId=%s&page=%s&pageSize=%s",
+//                choose.getHost(),
+//                choose.getPort(),
+//                userId,
+//                page,
+//                pageSize);
+//        PagedGridResult grid = restTemplate.getForObject(url, PagedGridResult.class);
+
+        //测试---start
+        int t = 1/0;
+        //测试---end
         return IMOOCJSONResult.ok(grid);
+    }
+
+    /**
+     * query的服务降级逻辑
+     * @param userId
+     * @param page
+     * @param pageSize
+     * @return
+     */
+    public IMOOCJSONResult queryFallBack(@RequestParam String userId,
+                                         @RequestParam Integer page,
+                                         @RequestParam Integer pageSize){
+        return IMOOCJSONResult.ok("进入服务降级，请稍后重试！");
     }
 
 }

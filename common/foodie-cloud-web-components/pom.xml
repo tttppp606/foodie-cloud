@@ -25,6 +25,7 @@
             <version>${project.version}</version>
         </dependency>
 
+<!--        此模块被所有业务模块的web继承，都会有actuator-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>

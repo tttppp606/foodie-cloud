@@ -26,7 +26,7 @@ public class BaseController {
                                                             File.separator + "faces";
 //    public static final String IMAGE_USER_FACE_LOCATION = "/workspaces/images/foodie/faces";
 
-      // fixme 下面的逻辑移植到订单中心去
+      //下面的逻辑移植到订单中心去
 //    @Autowired
 //    public MyOrdersService myOrdersService;
 //
