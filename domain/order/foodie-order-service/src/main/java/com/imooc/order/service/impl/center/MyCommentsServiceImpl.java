@@ -1,7 +1,7 @@
 package com.imooc.order.service.impl.center;
 
 import com.imooc.enums.YesOrNo;
-import com.imooc.item.service.ItemCommmentsService;
+import com.imooc.order.fallback.itemservice.ItemCommentsFeignClient;
 import com.imooc.order.mapper.OrderItemsMapper;
 import com.imooc.order.mapper.OrderStatusMapper;
 import com.imooc.order.mapper.OrdersMapper;
@@ -13,12 +13,9 @@ import com.imooc.order.service.center.MyCommentsService;
 import com.imooc.service.BaseService;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -48,7 +45,9 @@ public class MyCommentsServiceImpl extends BaseService implements MyCommentsServ
 
     /* feign调用 */
     @Autowired
-    private ItemCommmentsService itemCommmentsService;
+    //private ItemCommmentsService itemCommentsService;
+    private ItemCommentsFeignClient itemCommentsService;
+
 
     @Autowired
     private Sid sid;
@@ -84,7 +83,7 @@ public class MyCommentsServiceImpl extends BaseService implements MyCommentsServ
 //                instance.getPort());
 //        restTemplate.postForLocation(url,map);
 
-        itemCommmentsService.saveComments(map);
+        itemCommentsService.saveComments(map);
 
 
         // 2. 修改订单表改已评价 orders

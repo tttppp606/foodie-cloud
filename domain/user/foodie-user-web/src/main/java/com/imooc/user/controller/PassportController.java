@@ -2,6 +2,7 @@ package com.imooc.user.controller;
 
 import com.imooc.controller.BaseController;
 import com.imooc.pojo.ShopcartBO;
+import com.imooc.user.UserAppProperties;
 import com.imooc.user.pojo.Users;
 import com.imooc.user.pojo.bo.UserBO;
 import com.imooc.user.service.UserService;
@@ -10,6 +11,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +24,7 @@ import java.util.List;
 @Api(value = "注册登录", tags = {"用于注册登录的相关接口"})
 @RestController
 @RequestMapping("passport")
+@Slf4j
 public class PassportController extends BaseController {
 
     @Autowired
@@ -29,6 +32,9 @@ public class PassportController extends BaseController {
 
     @Autowired
     private RedisOperator redisOperator;
+
+    @Autowired
+    private UserAppProperties userAppProperties;
 
     @ApiOperation(value = "用户名是否存在", notes = "用户名是否存在", httpMethod = "GET")
     @GetMapping("/usernameIsExist")
@@ -54,6 +60,10 @@ public class PassportController extends BaseController {
     public IMOOCJSONResult regist(@RequestBody UserBO userBO,
                                   HttpServletRequest request,
                                   HttpServletResponse response) {
+        if(userAppProperties.getDisableRegistration().equals("true")){
+            log.info("用户：{}，因为注册开关关闭导致尝试注册不成功",userBO.getUsername());
+            return IMOOCJSONResult.errorMsg("暂时不允许注册");
+        }
 
         String username = userBO.getUsername();
         String password = userBO.getPassword();

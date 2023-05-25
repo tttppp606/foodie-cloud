@@ -2,10 +2,14 @@ server:
   port: 10002
 
 spring:
-  datasource:                                           # 数据源的相关配置
+  datasource:
+    # 从git上的配置中心拉取
+    url: ${mariadb.url}
     # 拆分数据源到独立的数据库实例或者schema
-    url: jdbc:mysql://localhost:3306/foodie-shop?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
-    password: 1990425lc
+    #url: jdbc:mysql://localhost:3306/foodie-shop?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+    #password: 1990425lc
+    password: ${mariadb.password}
+
   redis:
     # Redis 单机单实例
     database: 0

@@ -4,32 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f47bcf3-c45e-45df-a877-03305490a964" name="变更" comment="feign和ribbon超时重试配置">
-      <change afterPath="$PROJECT_DIR$/platform/hystrix-dashboard/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform/hystrix-dashboard/src/main/java/com/imooc/HystrixDashboardApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform/hystrix-dashboard/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform/hystrix-turbine/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform/hystrix-turbine/src/main/java/com/imooc/HystrixTurbineApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform/hystrix-turbine/src/main/resources/application.properties" afterDir="false" />
+    <list default="true" id="4f47bcf3-c45e-45df-a877-03305490a964" name="变更" comment="hystrix改进项目">
+      <change afterPath="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/fallback/itemservice/ItemCommentsFallBackFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/fallback/itemservice/ItemCommentsFallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/fallback/itemservice/ItemCommentsFeignClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/resources/application-dev.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/java/com/imooc/user/UserAppProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform/config-server/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform/config-server/src/main/java/com/imooc/springcloud/ConfigServerApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform/config-server/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform/config-server/src/main/resources/bootstrap.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/foodie-cloud-web-components/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/foodie-cloud-web-components/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/foodie-cloud-web-components/src/main/java/com/imooc/controller/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/foodie-cloud-web-components/src/main/java/com/imooc/controller/BaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/cart/foodie-cart-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/cart/foodie-cart-api/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/cart/foodie-cart-api/src/main/java/com/imooc/cart/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/cart/foodie-cart-api/src/main/java/com/imooc/cart/service/CartService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/cart/foodie-cart-web/src/main/java/com/imooc/cart/CartApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/cart/foodie-cart-web/src/main/java/com/imooc/cart/CartApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/cart/foodie-cart-web/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/cart/foodie-cart-web/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/item/foodie-item-web/src/main/java/com/imooc/item/ItemApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/item/foodie-item-web/src/main/java/com/imooc/item/ItemApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/item/foodie-item-web/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/item/foodie-item-web/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/service/impl/center/MyCommentsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/service/impl/center/MyCommentsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-web/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/java/com/imooc/order/OrderApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/java/com/imooc/order/OrderApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/java/com/imooc/order/controller/center/MyCommentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/java/com/imooc/order/controller/center/MyCommentsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/resources/bootstrap.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/user/foodie-user-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/foodie-user-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/resources/application-dev.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/user/foodie-user-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/java/com/imooc/user/controller/PassportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/java/com/imooc/user/controller/PassportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform/hystrix-dashboard/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/platform/hystrix-dashboard/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +77,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "/Users/lichuang/IdeaProjects/foodie-cloud/platform/hystrix-turbine/src/main/resources",
+    "last_opened_file_path": "/Users/lichuang/IdeaProjects/foodie-cloud/platform/config-server/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -91,7 +86,7 @@
     "project.structure.last.edited": "模块",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.4229885",
-    "settings.editor.selected.configurable": "File.Encoding",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "spring.configuration.checksum": "53c5ae697d456a770cd13d5a1004ac9d",
     "vue.rearranger.settings.migration": "true"
   }
@@ -101,11 +96,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/platform/config-server/src/main/resources" />
       <recent name="$PROJECT_DIR$/platform/hystrix-turbine/src/main/resources" />
       <recent name="$PROJECT_DIR$/domain" />
       <recent name="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/resources" />
       <recent name="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/java/com/imooc/order/controller/center" />
-      <recent name="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/service/impl/center" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/domain/user/foodie-user-mapper/src/main/resources/mapper" />
@@ -114,17 +109,43 @@
       <recent name="com.imooc.order.service.impl" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.imooc.order.fallback.itemservice" />
       <recent name="com.imooc.order.controller" />
       <recent name="com.imooc.order.service.impl.center" />
       <recent name="com.imooc.order.service.impl" />
       <recent name="com.imooc.order.service.center" />
-      <recent name="com.imooc.order.service" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.HystrixDashboardApp">
+  <component name="RunManager" selected="Spring Boot.UserApplication">
     <configuration name="CartApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="foodie-cart-web" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.imooc.cart.CartApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigServerApp (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="config-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.imooc.springcloud.ConfigServerApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.imooc.springcloud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigServerApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="config-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.springcloud.ConfigServerApp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.springcloud.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -192,8 +213,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.HystrixDashboardApp" />
+        <item itemvalue="Spring Boot.ConfigServerApp (1)" />
+        <item itemvalue="Spring Boot.ConfigServerApp" />
         <item itemvalue="Spring Boot.EurekaServer2Application" />
+        <item itemvalue="Spring Boot.HystrixDashboardApp" />
       </list>
     </recent_temporary>
   </component>
@@ -213,7 +236,7 @@
       <workItem from="1684481928401" duration="5745000" />
       <workItem from="1684499112800" duration="2511000" />
       <workItem from="1684571687810" duration="5375000" />
-      <workItem from="1684857097585" duration="13658000" />
+      <workItem from="1684857097585" duration="36859000" />
     </task>
     <task id="LOCAL-00001" summary="架构师课程项目微服务改造">
       <created>1684211560835</created>
@@ -236,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684490715513</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="hystrix改进项目">
+      <created>1684907432805</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1684907432805</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -257,27 +287,7 @@
     <MESSAGE value="架构师课程项目微服务改造" />
     <MESSAGE value="升级为feign调用改造" />
     <MESSAGE value="feign和ribbon超时重试配置" />
-    <option name="LAST_COMMIT_MESSAGE" value="feign和ribbon超时重试配置" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/service/impl/center/MyCommentsServiceImpl.java</url>
-          <line>86</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/domain/order/foodie-order-web/src/main/java/com/imooc/order/controller/center/MyCommentsController.java</url>
-          <line>93</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/domain/order/foodie-order-web/src/main/java/com/imooc/order/controller/center/MyCommentsController.java</url>
-          <line>81</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="hystrix改进项目" />
+    <option name="LAST_COMMIT_MESSAGE" value="hystrix改进项目" />
   </component>
 </project>

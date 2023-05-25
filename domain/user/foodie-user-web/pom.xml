@@ -29,11 +29,15 @@
             <artifactId>foodie-cloud-web-components</artifactId>
             <version>${project.version}</version>
         </dependency>
-
         <!--        需要eureka到注册中心，并且可以被其他微服务发现-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+<!--        从配置中心服务端拉取配置需要-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
     </dependencies>
 

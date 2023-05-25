@@ -2,7 +2,7 @@ package com.imooc.order.controller.center;
 
 import com.imooc.controller.BaseController;
 import com.imooc.enums.YesOrNo;
-import com.imooc.item.service.ItemCommmentsService;
+import com.imooc.order.fallback.itemservice.ItemCommentsFeignClient;
 import com.imooc.order.pojo.OrderItems;
 import com.imooc.order.pojo.Orders;
 import com.imooc.order.pojo.bo.center.OrderItemsCommentBO;
@@ -11,17 +11,13 @@ import com.imooc.order.service.center.MyOrdersService;
 import com.imooc.pojo.IMOOCJSONResult;
 import com.imooc.pojo.PagedGridResult;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -34,7 +30,8 @@ public class MyCommentsController extends BaseController {
     private MyCommentsService myCommentsService;
 
     @Autowired
-    private ItemCommmentsService itemsCommentsService;
+    //private ItemCommmentsService itemCommentsService;
+    private ItemCommentsFeignClient itemCommentsService;
 
     @Autowired
     private MyOrdersService myOrdersService;
@@ -97,10 +94,10 @@ public class MyCommentsController extends BaseController {
 
     @ApiOperation(value = "查询我的评价", notes = "查询我的评价", httpMethod = "POST")
     @PostMapping("/query")
-    @HystrixCommand(
-            fallbackMethod = "queryFallBack",
-            commandKey = "queryCommandKey"
-            )
+//    @HystrixCommand(
+//            fallbackMethod = "queryFallBack",
+//            commandKey = "queryCommandKey"
+//            )
     public IMOOCJSONResult query(
             @ApiParam(name = "userId", value = "用户id", required = true)
             @RequestParam String userId,
@@ -119,7 +116,7 @@ public class MyCommentsController extends BaseController {
             pageSize = COMMON_PAGE_SIZE;
         }
 
-        PagedGridResult grid = itemsCommentsService.queryMyComments(userId,
+        PagedGridResult grid = itemCommentsService.queryMyComments(userId,
                 page,
                 pageSize);
 
@@ -133,9 +130,9 @@ public class MyCommentsController extends BaseController {
 //                pageSize);
 //        PagedGridResult grid = restTemplate.getForObject(url, PagedGridResult.class);
 
-        //测试---start
-        int t = 1/0;
-        //测试---end
+//        //测试---start
+//        int t = 1/0;
+//        //测试---end
         return IMOOCJSONResult.ok(grid);
     }
 

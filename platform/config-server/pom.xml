@@ -10,7 +10,7 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>hystrix-dashboard</artifactId>
+    <artifactId>config-server</artifactId>
     <packaging>jar</packaging>
 
     <properties>
@@ -20,18 +20,20 @@
     </properties>
 
     <dependencies>
+<!--        config服务端高可用改造-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-actuator</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+        </dependency>
+<!--        动态刷新需要-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
     </dependencies>
 
     <!--1、maven-compiler-plugin 是用于在编译（compile）阶段加入定制化参数，
@@ -45,7 +47,7 @@
                 <version>2.7.9</version>
                 <!--                <mainClass></mainClass>指定manifest文件里主方法-->
                 <configuration>
-                    <mainClass>com.imooc.HystrixDashboardApp</mainClass>
+                    <mainClass>com.imooc.ConfigServerApp</mainClass>
                 </configuration>
                 <!-- 重新打包，把所有依赖都打进 jar 包中，这样打出来的包就可以直接独立运行，因为里面包含了所有依赖 -->
                 <executions>

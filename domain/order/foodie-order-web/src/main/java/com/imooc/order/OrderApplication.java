@@ -1,6 +1,9 @@
 package com.imooc.order;
 
 
+import com.imooc.item.service.ItemService;
+import com.imooc.order.fallback.itemservice.ItemCommentsFeignClient;
+import com.imooc.user.service.AddressService;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -19,8 +22,20 @@ import tk.mybatis.spring.annotation.MapperScan;
 @ComponentScan(basePackages = {"com.imooc", "org.n3r.idworker"})
 @EnableDiscoveryClient
 @EnableScheduling
-//1、这个模块需要利用feign进行服务调用；2、调用的目标类在什么路径下
-@EnableFeignClients(basePackages = {"com.imooc.user.service", "com.imooc.item.service"})
+/**
+ * 1、feign的调用者才使用；
+ * 2、要调用哪里的接口，就扫描basePackages哪里的包或者配置clients哪里的类
+ */
+@EnableFeignClients(clients = {
+        ItemCommentsFeignClient.class,
+        AddressService.class,
+        ItemService.class
+}
+//        basePackages = {
+//        "com.imooc.user.service",
+//        "com.imooc.item.service",
+//        "com.imooc.order.fallback.itemservice"}
+)
 @EnableHystrix
 public class OrderApplication {
     public static void main(String[] args) {
