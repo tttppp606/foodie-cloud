@@ -4,28 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f47bcf3-c45e-45df-a877-03305490a964" name="变更" comment="hystrix改进项目">
-      <change afterPath="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/fallback/itemservice/ItemCommentsFallBackFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/fallback/itemservice/ItemCommentsFallback.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/fallback/itemservice/ItemCommentsFeignClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/resources/application-dev.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/java/com/imooc/user/UserAppProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform/config-server/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform/config-server/src/main/java/com/imooc/springcloud/ConfigServerApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform/config-server/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform/config-server/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="4f47bcf3-c45e-45df-a877-03305490a964" name="变更" comment="config改进项目">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/service/impl/center/MyCommentsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/service/impl/center/MyCommentsServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/java/com/imooc/order/OrderApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/java/com/imooc/order/OrderApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/java/com/imooc/order/controller/center/MyCommentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/java/com/imooc/order/controller/center/MyCommentsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/resources/application-dev.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/user/foodie-user-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/java/com/imooc/user/controller/PassportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/java/com/imooc/user/controller/PassportController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/bootstrap.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/platform/hystrix-dashboard/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/platform/hystrix-dashboard/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform/config-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/platform/config-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform/config-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/platform/config-server/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,31 +52,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "/Users/lichuang/IdeaProjects/foodie-cloud/platform/config-server/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.4229885",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "spring.configuration.checksum": "53c5ae697d456a770cd13d5a1004ac9d",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/lichuang/IdeaProjects/foodie-cloud/platform/config-server/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.4229885&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;1b2926ae7ebd9b676bc845208361ccb7&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -116,7 +102,7 @@
       <recent name="com.imooc.order.service.center" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.UserApplication">
+  <component name="RunManager" selected="Spring Boot.UserApplication (1)">
     <configuration name="CartApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="foodie-cart-web" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.imooc.cart.CartApplication" />
@@ -204,6 +190,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="foodie-user-web" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.imooc.user.UserApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="foodie-user-web" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.imooc.user.UserApplication" />
@@ -211,11 +204,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Spring Boot.CartApplication" />
+      <item itemvalue="Spring Boot.EurekaServer1Application" />
+      <item itemvalue="Spring Boot.HystrixTurbineApplication" />
+      <item itemvalue="Spring Boot.ItemApplication" />
+      <item itemvalue="Spring Boot.OrderApplication" />
+      <item itemvalue="Spring Boot.UserApplication" />
+      <item itemvalue="Spring Boot.UserApplication (1)" />
+      <item itemvalue="Spring Boot.ConfigServerApp" />
+      <item itemvalue="Spring Boot.ConfigServerApp (1)" />
+      <item itemvalue="Spring Boot.EurekaServer2Application" />
+      <item itemvalue="Spring Boot.HystrixDashboardApp" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.ConfigServerApp (1)" />
-        <item itemvalue="Spring Boot.ConfigServerApp" />
         <item itemvalue="Spring Boot.EurekaServer2Application" />
+        <item itemvalue="Spring Boot.ConfigServerApp" />
         <item itemvalue="Spring Boot.HystrixDashboardApp" />
       </list>
     </recent_temporary>
@@ -237,6 +243,8 @@
       <workItem from="1684499112800" duration="2511000" />
       <workItem from="1684571687810" duration="5375000" />
       <workItem from="1684857097585" duration="36859000" />
+      <workItem from="1685010369083" duration="72000" />
+      <workItem from="1685063157478" duration="2653000" />
     </task>
     <task id="LOCAL-00001" summary="架构师课程项目微服务改造">
       <created>1684211560835</created>
@@ -266,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684907432805</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="config改进项目">
+      <created>1685010427140</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685010427140</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,6 +303,7 @@
     <MESSAGE value="升级为feign调用改造" />
     <MESSAGE value="feign和ribbon超时重试配置" />
     <MESSAGE value="hystrix改进项目" />
-    <option name="LAST_COMMIT_MESSAGE" value="hystrix改进项目" />
+    <MESSAGE value="config改进项目" />
+    <option name="LAST_COMMIT_MESSAGE" value="config改进项目" />
   </component>
 </project>

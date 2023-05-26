@@ -22,6 +22,10 @@ spring:
     allow-bean-definition-overriding: true
   profiles:
     active: dev
+  rabbitmq:
+    addresses: 43.154.106.172:5672, 43.154.166.55:5672, 43.154.33.30:5672
+    username: admin
+    password: admin
   datasource:                                           # 数据源的相关配置
     type: com.zaxxer.hikari.HikariDataSource          # 数据源类型：HikariCP
     driver-class-name: com.mysql.cj.jdbc.Driver          # mysql驱动
