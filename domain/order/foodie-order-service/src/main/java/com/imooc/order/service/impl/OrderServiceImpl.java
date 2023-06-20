@@ -73,9 +73,10 @@ public class OrderServiceImpl implements OrderService {
         // 包邮费用设置为0
         Integer postAmount = 0;
 
+        //分布式全局唯一ID
         String orderId = sid.nextShort();
 
-        //等学习fegin再优化
+        //fegin调用
         UserAddress address = addressService.queryUserAddres(userId, addressId);
 //        ServiceInstance instance = loadBalancerClient.choose("foodie-user-service");
 //        String url = String.format("http://%s:%s/address-api/queryAddress"+

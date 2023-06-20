@@ -13,6 +13,12 @@ import com.imooc.item.service.ItemService;
 import com.imooc.utils.DesensitizationUtil;
 import com.imooc.pojo.PagedGridResult;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.curator.RetryPolicy;
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.framework.api.GetDataBuilder;
+import org.apache.curator.framework.recipes.locks.InterProcessMutex;
+import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -21,6 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @Slf4j
@@ -213,11 +220,29 @@ public class ItemServiceImpl implements ItemService {
 //        }
 
         // lockUtil.unLock(); -- 解锁
+        /**
+         * zookeeper的curator实现分布式锁，防止多线程并发减少库存，导致超卖现象
+         */
+        RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
+        CuratorFramework client = CuratorFrameworkFactory.newClient("43.154.87.31:2181", retryPolicy);
+        client.start();
+        InterProcessMutex lock = new InterProcessMutex(client, "/foodie-cloud-order");
 
-
-        int result = itemsMapperCustom.decreaseItemSpecStock(specId, buyCounts);
-        if (result != 1) {
-            throw new RuntimeException("订单创建失败，原因：库存不足!");
+        try {
+            if(lock.acquire(30, TimeUnit.SECONDS)){
+                int result = itemsMapperCustom.decreaseItemSpecStock(specId, buyCounts);
+                if (result != 1) {
+                    throw new RuntimeException("订单创建失败，原因：库存不足!");
+                }
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }finally {
+            try {
+                lock.release();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }
