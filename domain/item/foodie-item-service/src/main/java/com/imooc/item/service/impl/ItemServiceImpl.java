@@ -12,6 +12,7 @@ import com.imooc.item.pojo.vo.ShopcartVO;
 import com.imooc.item.service.ItemService;
 import com.imooc.utils.DesensitizationUtil;
 import com.imooc.pojo.PagedGridResult;
+import com.imooc.utils.RedisLock;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
@@ -19,7 +20,13 @@ import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.framework.api.GetDataBuilder;
 import org.apache.curator.framework.recipes.locks.InterProcessMutex;
 import org.apache.curator.retry.ExponentialBackoffRetry;
+import org.redisson.Redisson;
+import org.redisson.api.RLock;
+import org.redisson.api.RedissonClient;
+import org.redisson.config.Config;
+import org.redisson.config.SingleServerConfig;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,6 +53,10 @@ public class ItemServiceImpl implements ItemService {
     private ItemsCommentsMapper itemsCommentsMapper;
     @Autowired
     private ItemsMapperCustom itemsMapperCustom;
+
+//    @Autowired
+//    private RedisTemplate redisTemplate;
+
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
@@ -223,26 +234,63 @@ public class ItemServiceImpl implements ItemService {
         /**
          * zookeeper的curator实现分布式锁，防止多线程并发减少库存，导致超卖现象
          */
-        RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
-        CuratorFramework client = CuratorFrameworkFactory.newClient("43.154.87.31:2181", retryPolicy);
-        client.start();
-        InterProcessMutex lock = new InterProcessMutex(client, "/foodie-cloud-order");
+//        RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
+//        CuratorFramework client = CuratorFrameworkFactory.newClient("43.154.87.31:2181", retryPolicy);
+//        client.start();
+//        InterProcessMutex lock = new InterProcessMutex(client, "/foodie-cloud-order");
+//
+//        try {
+//            if(lock.acquire(30, TimeUnit.SECONDS)){
+//                int result = itemsMapperCustom.decreaseItemSpecStock(specId, buyCounts);
+//                if (result != 1) {
+//                    throw new RuntimeException("订单创建失败，原因：库存不足!");
+//                }
+//            }
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }finally {
+//            try {
+//                lock.release();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
 
-        try {
-            if(lock.acquire(30, TimeUnit.SECONDS)){
-                int result = itemsMapperCustom.decreaseItemSpecStock(specId, buyCounts);
-                if (result != 1) {
-                    throw new RuntimeException("订单创建失败，原因：库存不足!");
-                }
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }finally {
-            try {
-                lock.release();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        /**
+         * 利用原生redis实现分布式锁
+         */
+//        try (RedisLock redisLock = new RedisLock(redisTemplate,"redisKey",30)){
+//            if (redisLock.getLock()) {
+//                //业务逻辑
+//                int result = itemsMapperCustom.decreaseItemSpecStock(specId, buyCounts);
+//                if (result != 1) {
+//                    throw new RuntimeException("订单创建失败，原因：库存不足!");
+//                }
+//            }
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+
+        /**
+         * 利用redis的redission客户端实现分布式锁
+         */
+        Config config = new Config();
+        config.useSingleServer()
+                .setAddress("redis://43.154.166.55:6379")
+                .setDatabase(0)
+                .setPassword("1990425lc");
+        RedissonClient redisson = Redisson.create(config);
+
+        RLock lock = redisson.getLock("redission-order");
+        lock.lock(30,TimeUnit.SECONDS);
+        int result = itemsMapperCustom.decreaseItemSpecStock(specId, buyCounts);
+        if (result != 1) {
+            lock.unlock();
+            throw new RuntimeException("订单创建失败，原因：库存不足!");
         }
+        lock.unlock();
     }
 }
