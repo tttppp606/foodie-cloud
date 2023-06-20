@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f47bcf3-c45e-45df-a877-03305490a964" name="变更" comment="1、配置文件dev和prod分离&#10;2、gateway添加search路由">
-      <change afterPath="$PROJECT_DIR$/domain/item/foodie-item-web/src/main/java/com/imooc/item/test/ItemServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/foodie-cloud-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/foodie-cloud-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/item/foodie-item-service/src/main/java/com/imooc/item/service/impl/ItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/item/foodie-item-service/src/main/java/com/imooc/item/service/impl/ItemServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/item/foodie-item-web/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/item/foodie-item-web/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/item/foodie-item-web/src/main/resources/bootstrap.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/service/impl/OrderServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/java/com/imooc/user/controller/center/CenterUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/java/com/imooc/user/controller/center/CenterUserController.java" afterDir="false" />
-    </list>
+    <list default="true" id="4f47bcf3-c45e-45df-a877-03305490a964" name="变更" comment="zk实现分布式锁" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -265,7 +255,7 @@
       <workItem from="1686763232786" duration="9211000" />
       <workItem from="1686843413630" duration="276000" />
       <workItem from="1686843872270" duration="12422000" />
-      <workItem from="1687234420662" duration="8051000" />
+      <workItem from="1687234420662" duration="8414000" />
     </task>
     <task id="LOCAL-00001" summary="架构师课程项目微服务改造">
       <created>1684211560835</created>
@@ -323,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687236060200</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="zk实现分布式锁">
+      <created>1687242701028</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1687242701028</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,6 +346,7 @@
     <MESSAGE value="config改进项目" />
     <MESSAGE value="bus结合config改进项目&#10;rabbitmq连接集群" />
     <MESSAGE value="1、配置文件dev和prod分离&#10;2、gateway添加search路由" />
-    <option name="LAST_COMMIT_MESSAGE" value="1、配置文件dev和prod分离&#10;2、gateway添加search路由" />
+    <MESSAGE value="zk实现分布式锁" />
+    <option name="LAST_COMMIT_MESSAGE" value="zk实现分布式锁" />
   </component>
 </project>
