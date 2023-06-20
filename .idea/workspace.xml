@@ -5,17 +5,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f47bcf3-c45e-45df-a877-03305490a964" name="变更" comment="bus结合config改进项目&#10;rabbitmq连接集群">
-      <change afterPath="$PROJECT_DIR$/platform/gateway/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform/gateway/src/main/java/com/imooc/springcloud/GatewayApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform/gateway/src/main/java/com/imooc/springcloud/config/RedisLimiterConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform/gateway/src/main/java/com/imooc/springcloud/config/RoutsConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform/gateway/src/main/java/com/imooc/springcloud/filter/AuthFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform/gateway/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/platform/gateway/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/cart/foodie-cart-web/src/main/resources/application-prod.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/item/foodie-item-web/src/main/resources/application-prod.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/resources/application-prod.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/search/foodie-search-api/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/search/foodie-search-api/src/main/java/com/imooc/search/service/ItemsESService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/search/foodie-search-pojo/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/search/foodie-search-pojo/src/main/java/com/imooc/search/pojo/Items.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/search/foodie-search-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/search/foodie-search-service/src/main/java/com/imooc/search/impl/ItemsESServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/search/foodie-search-web/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/search/foodie-search-web/src/main/java/com/imooc/search/SearchApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/search/foodie-search-web/src/main/java/com/imooc/search/config/ESconfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/search/foodie-search-web/src/main/java/com/imooc/search/controller/ESController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/search/foodie-search-web/src/main/resources/application-dev.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/search/foodie-search-web/src/main/resources/application-prod.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/search/foodie-search-web/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/README.MD" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logs/2023-06-05.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform/config-server/src/main/resources/application-dev.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform/config-server/src/main/resources/application-prod.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform/gateway/src/main/resources/application-dev.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform/gateway/src/main/resources/application-prod.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform/registry-center1/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform/registry-center1/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform/registry-center2/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/platform/registry-center2/src/main/resources/application-prod.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/cart/foodie-cart-web/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/cart/foodie-cart-web/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/cart/foodie-cart-web/src/main/resources/application-prod.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/cart/foodie-cart-web/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/cart/foodie-cart-web/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/cart/foodie-cart-web/src/main/resources/bootstrap.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/item/foodie-item-mapper/src/main/java/com/imooc/item/mapper/ItemsMapperCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/item/foodie-item-mapper/src/main/java/com/imooc/item/mapper/ItemsMapperCustom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/item/foodie-item-mapper/src/main/resources/mapper/ItemsMapperCustom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/item/foodie-item-mapper/src/main/resources/mapper/ItemsMapperCustom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/item/foodie-item-web/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/item/foodie-item-web/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/item/foodie-item-web/src/main/resources/application-prod.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/item/foodie-item-web/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/item/foodie-item-web/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/service/impl/center/MyOrdersServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/service/impl/center/MyOrdersServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-web/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/java/com/imooc/order/controller/center/MyCommentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/java/com/imooc/order/controller/center/MyCommentsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/resources/application-prod.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/resources/bootstrap.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/application-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/application-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources/bootstrap.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform/config-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/platform/config-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform/config-server/src/main/java/com/imooc/springcloud/ConfigServerApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform/config-server/src/main/java/com/imooc/springcloud/ConfigServerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/platform/config-server/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/platform/config-server/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform/gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/platform/gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform/gateway/src/main/java/com/imooc/springcloud/config/RedisLimiterConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform/gateway/src/main/java/com/imooc/springcloud/config/RedisLimiterConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform/gateway/src/main/java/com/imooc/springcloud/config/RoutsConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/platform/gateway/src/main/java/com/imooc/springcloud/config/RoutsConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform/gateway/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/platform/gateway/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform/gateway/src/main/resources/bootstrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/platform/gateway/src/main/resources/bootstrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform/registry-center1/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/platform/registry-center1/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platform/registry-center2/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/platform/registry-center2/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,62 +98,66 @@
     </option>
   </component>
   <component name="ProjectId" id="2PcuSJmqE1hFZRHcFUpJsK1rKNm" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "/Users/lichuang/IdeaProjects/foodie-cloud/platform/gateway/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.4229885",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "spring.configuration.checksum": "65f4d9f00464c9c88283155acda3e61f",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/lichuang/IdeaProjects/foodie-cloud/domain/search/foodie-search-web/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.4229885&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;0db98f4688bd60411582d8b6e0ab075a&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/domain/search/foodie-search-web/src/main/resources" />
+      <recent name="$PROJECT_DIR$/domain/search/foodie-search-web" />
       <recent name="$PROJECT_DIR$/platform/gateway/src/main/resources" />
-      <recent name="$PROJECT_DIR$/platform/config-server/src/main/resources" />
-      <recent name="$PROJECT_DIR$/platform/hystrix-turbine/src/main/resources" />
-      <recent name="$PROJECT_DIR$/domain" />
-      <recent name="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/resources" />
+      <recent name="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources" />
+      <recent name="$PROJECT_DIR$/platform/registry-center2/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/domain/search" />
       <recent name="$PROJECT_DIR$/domain/user/foodie-user-mapper/src/main/resources/mapper" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.imooc.order.service.impl" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.imooc.order.fallback.itemservice" />
-      <recent name="com.imooc.order.controller" />
-      <recent name="com.imooc.order.service.impl.center" />
-      <recent name="com.imooc.order.service.impl" />
-      <recent name="com.imooc.order.service.center" />
+      <recent name="com.imooc.search.controller" />
+      <recent name="com.imooc.search" />
+      <recent name="com.imooc.search.service" />
+      <recent name="" />
+      <recent name="com.imooc.search.pojo" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ItemApplication">
+  <component name="RunManager" selected="Spring Boot.GatewayApp">
     <configuration name="CartApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="foodie-cart-web" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.imooc.cart.CartApplication" />
@@ -117,7 +167,7 @@
     </configuration>
     <configuration name="ConfigServerApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
       <module name="config-server" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.imooc.springcloud.ConfigServerApp" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.imooc.springcloud.ConfigServerApplication" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.imooc.springcloud.*" />
@@ -195,6 +245,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SearchApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="foodie-search-web" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.imooc.search.SearchApp" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UserApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="foodie-user-web" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.imooc.user.UserApplication" />
@@ -210,6 +267,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Spring Boot.SearchApp" />
       <item itemvalue="Spring Boot.CartApplication" />
       <item itemvalue="Spring Boot.EurekaServer1Application" />
       <item itemvalue="Spring Boot.HystrixTurbineApplication" />
@@ -225,9 +283,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.GatewayApp" />
+        <item itemvalue="Spring Boot.EurekaServer2Application" />
         <item itemvalue="Spring Boot.ConfigServerApp" />
         <item itemvalue="Spring Boot.HystrixDashboardApp" />
-        <item itemvalue="Spring Boot.EurekaServer2Application" />
         <item itemvalue="Spring Boot.ConfigServerApp" />
       </list>
     </recent_temporary>
@@ -251,7 +309,12 @@
       <workItem from="1684857097585" duration="36859000" />
       <workItem from="1685010369083" duration="72000" />
       <workItem from="1685063157478" duration="11070000" />
-      <workItem from="1685372524534" duration="9081000" />
+      <workItem from="1685372524534" duration="10611000" />
+      <workItem from="1685893595397" duration="27286000" />
+      <workItem from="1686763232786" duration="9211000" />
+      <workItem from="1686843413630" duration="276000" />
+      <workItem from="1686843872270" duration="12422000" />
+      <workItem from="1687234420662" duration="1270000" />
     </task>
     <task id="LOCAL-00001" summary="架构师课程项目微服务改造">
       <created>1684211560835</created>
@@ -295,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685072696133</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="bus结合config改进项目&#10;rabbitmq连接集群">
+      <created>1685455511929</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685455511929</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,6 +383,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="架构师课程项目微服务改造" />
     <MESSAGE value="升级为feign调用改造" />
     <MESSAGE value="feign和ribbon超时重试配置" />

@@ -60,12 +60,4 @@ public class RedisLimiterConfiguration {
     public RedisRateLimiter redisLimiterItem() {
         return new RedisRateLimiter(20, 50);
     }
-
-
-
-
-
-
-
-
 }

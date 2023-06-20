@@ -177,6 +177,6 @@ public class MyOrdersServiceImpl extends BaseService implements MyOrdersService 
         if (orders == null){
             return IMOOCJSONResult.errorMap("订单不存在");
         }
-        return IMOOCJSONResult.ok();
+        return IMOOCJSONResult.ok(orders);
     }
 }

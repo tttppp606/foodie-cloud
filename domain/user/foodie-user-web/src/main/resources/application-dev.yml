@@ -2,16 +2,21 @@ server:
   port: 10012
 
 spring:
+  # 从git上的配置中心拉取url和password
   datasource:
-    # 从git上的配置中心拉取
     url: ${mariadb.url}
     # 拆分数据源到独立的数据库实例或者schema
     #url: jdbc:mysql://localhost:3306/foodie-shop?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
     #password: 1990425lc
     password: ${mariadb.password}
+  # 连接云服务器里的rabbitmq集群
+  rabbitmq:
+    addresses: 43.154.106.172:5672, 43.154.166.55:5672, 43.154.33.30:5672
+    username: admin
+    password: admin
 
+  # 连接云服务器里的redis
   redis:
-    # Redis 单机单实例
     database: 0
     host: 43.154.166.55
     port: 6379

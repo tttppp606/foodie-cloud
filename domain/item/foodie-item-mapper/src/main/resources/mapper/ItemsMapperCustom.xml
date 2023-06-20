@@ -23,7 +23,7 @@
         </if>
   </select>
 
-    <!--   todo 迁移到foodie-search模块-->
+    <!--   迁移到foodie-search模块-->
 <!--    <select id="searchItems" parameterType="Map" resultType="com.imooc.item.pojo.vo.SearchItemsVO">-->
 <!--        SELECT-->
 <!--            i.id as itemId,-->

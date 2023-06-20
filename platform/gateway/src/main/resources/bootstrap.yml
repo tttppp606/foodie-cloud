@@ -2,13 +2,13 @@ spring:
   cloud:
     gateway:
       routes:
-      - id: foodie-user-server  # 自定义的名字
+      - id: foodie-user-service  # 自定义的名字
         uri: lb://foodie-user-service # lb为负载均衡
-        predicates:   # 匹配断言，请求路径为yml才能匹配，才能调用注册中心里的FEIGN-CLIENT
+        predicates:   # 匹配断言，请求路径为/user/**才能匹配，才能调用注册中心里的foodie-user-service
         - Path=/user/**
         filters:      # 过滤器，像加工器
         - StripPrefix=1  # localhost:1008/yml/sayHi中的第一个前缀yml删掉，localhost:1008被替换为FEIGN-CLIENT
-      - id: foodie-user-server-1
+      - id: foodie-user-service-1
         uri: lb://foodie-user-service
         predicates:
           - Path=/users/**

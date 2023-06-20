@@ -60,7 +60,7 @@
                 <version>2.7.9</version>
                 <!--                <mainClass></mainClass>指定manifest文件里主方法-->
                 <configuration>
-                    <mainClass>com.imooc.item.OrderApplication</mainClass>
+                    <mainClass>com.imooc.order.OrderApplication</mainClass>
                 </configuration>
                 <!-- 重新打包，把所有依赖都打进 jar 包中，这样打出来的包就可以直接独立运行，因为里面包含了所有依赖 -->
                 <executions>

@@ -18,7 +18,7 @@ spring:
   application:
     name: foodie-order-service
   profiles:
-    active: dev
+    active: prod
   datasource:                                           # 数据源的相关配置
     type: com.zaxxer.hikari.HikariDataSource          # 数据源类型：HikariCP
     driver-class-name: com.mysql.cj.jdbc.Driver          # mysql驱动
@@ -67,3 +67,9 @@ mapper:
 pagehelper:
   helperDialect: mysql
   supportMethodsArguments: true
+
+# 关闭actuator对rabbit的检查，否则报错
+management:
+  health:
+    rabbit:
+      enabled: false

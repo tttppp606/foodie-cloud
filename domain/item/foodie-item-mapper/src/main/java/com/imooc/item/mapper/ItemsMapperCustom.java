@@ -10,7 +10,7 @@ import java.util.Map;
 public interface ItemsMapperCustom {
 
     public List<ItemCommentVO> queryItemComments(@Param("paramsMap") Map<String, Object> map);
-    // todo 迁移到foodie-search模块
+    //迁移到foodie-search模块
 //    public List<SearchItemsVO> searchItems(@Param("paramsMap") Map<String, Object> map);
 //
 //    public List<SearchItemsVO> searchItemsByThirdCat(@Param("paramsMap") Map<String, Object> map);

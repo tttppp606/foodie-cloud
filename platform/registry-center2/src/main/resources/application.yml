@@ -7,13 +7,13 @@ spring:
 server:
   port: 20012
 
-eureka:
-  instance:
-    hostname: peer2
-  client:
-    register-with-eureka: false
-    fetch-registry: false
-    service-url:
-      defaultZone: http://peer1:20011/eureka
+#eureka:
+#  instance:
+#    hostname: peer2
+#  client:
+#    register-with-eureka: false
+#    fetch-registry: false
+#    service-url:
+#      defaultZone: http://peer1:20011/eureka
 
 

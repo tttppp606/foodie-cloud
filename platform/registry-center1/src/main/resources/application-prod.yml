@@ -1,0 +1,12 @@
+eureka:
+  instance:
+    instance-id: ${eureka.instance.ip-address}:${server.port}
+    ip-address: 172.25.131.203   #容器所在服务器内网IP
+    prefer-ip-address: true   #将IP(就是上面的ip-address)注册到Eureka Server上，而如果不配置就是机器的hostname。
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+#    service-url:
+#      defaultZone: http://172.25.131.203:20012/eureka # 修改为register-center2容器所在服务器内网IP和端口
+
+

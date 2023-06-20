@@ -1,0 +1,14 @@
+eureka:
+  instance:
+    hostname: peer1
+#    instance-id: ${eureka.instance.ip-address}:${server.port}
+#    ip-address: 127.0.0.1  #容器所在服务器内网IP
+#    #将IP(就是上面的ip-address)注册到Eureka Server上，而如果不配置就是机器的hostname。
+#    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://peer2:20012/eureka
+
+

@@ -44,6 +44,9 @@ public class RoutsConfiguration {
                 .route(r -> r.path("/shopcart/**")   //user模块controller对客户提供的服务，而service层的服务都是服务之间调用，不走网关
                         .uri("lb://FOODIE-CART-SERVICE")
                 )
+                .route(r -> r.path("/itemsES/**")   //search模块controller对客户提供的服务，而service层的服务都是服务之间调用，不走网关
+                        .uri("lb://FOODIE-SEARCH-SERVICE")
+                )
                 .build();
     }
 }

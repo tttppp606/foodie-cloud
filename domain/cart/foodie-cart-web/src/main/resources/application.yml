@@ -19,7 +19,7 @@ spring:
   application:
     name: foodie-cart-service
   profiles:
-    active: dev
+    active: prod
   datasource:                                           # 数据源的相关配置
     type: com.zaxxer.hikari.HikariDataSource          # 数据源类型：HikariCP
     driver-class-name: com.mysql.cj.jdbc.Driver          # mysql驱动
@@ -84,3 +84,6 @@ management:
         include: "*"  # 暴露全部
     health:
       show-details: always  # 顾名思义
+  health:  # 关闭actuator对rabbit的检查，否则报错
+    rabbit:
+        enabled: false

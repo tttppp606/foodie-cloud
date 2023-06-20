@@ -10,3 +10,13 @@ spring:
 mybatis:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+######################################################
+#
+#   Eureka 注册中心
+#
+######################################################
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:20011/eureka/,http://peer2:20012/eureka/
