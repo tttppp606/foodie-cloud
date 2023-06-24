@@ -232,7 +232,7 @@ public class ItemServiceImpl implements ItemService {
 
         // lockUtil.unLock(); -- 解锁
         /**
-         * zookeeper的curator实现分布式锁，防止多线程并发减少库存，导致超卖现象
+         * 一、zookeeper的curator实现分布式锁，防止多线程并发减少库存，导致超卖现象---start
          */
 //        RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
 //        CuratorFramework client = CuratorFrameworkFactory.newClient("43.154.87.31:2181", retryPolicy);
@@ -256,8 +256,10 @@ public class ItemServiceImpl implements ItemService {
 //            }
 //        }
 
+
         /**
-         * 利用原生redis实现分布式锁
+         * 二、利用原生redis实现分布式锁
+         * 缺点：并发10个线程只能成功一个，剩余的全部失败，不能等待
          */
 //        try (RedisLock redisLock = new RedisLock(redisTemplate,"redisKey",30)){
 //            if (redisLock.getLock()) {
@@ -273,9 +275,10 @@ public class ItemServiceImpl implements ItemService {
 //            e.printStackTrace();
 //        }
 
-
         /**
-         * 利用redis的redission客户端实现分布式锁
+         * 三、利用redis的redission客户端实现分布式锁
+         *
+         * 100线程 35%error
          */
         Config config = new Config();
         config.useSingleServer()

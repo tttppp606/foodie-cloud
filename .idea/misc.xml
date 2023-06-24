@@ -8,7 +8,13 @@
         <option value="$PROJECT_DIR$/domain/cart/foodie-cart-service/pom.xml" />
         <option value="$PROJECT_DIR$/domain/cart/foodie-cart-api/pom.xml" />
         <option value="$PROJECT_DIR$/domain/cart/foodie-cart-web/pom.xml" />
+        <option value="$PROJECT_DIR$/common/rabbit-parent/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/common/rabbit-parent/test/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">

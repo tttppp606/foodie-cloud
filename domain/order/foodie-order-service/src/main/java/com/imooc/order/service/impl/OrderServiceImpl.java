@@ -13,6 +13,7 @@ import com.imooc.order.pojo.OrderStatus;
 import com.imooc.order.pojo.Orders;
 import com.imooc.order.pojo.bo.PlaceOrderBO;
 import com.imooc.order.pojo.bo.SubmitOrderBO;
+import com.imooc.pojo.DecreaseStock;
 import com.imooc.pojo.ShopcartBO;
 import com.imooc.order.pojo.vo.MerchantOrdersVO;
 import com.imooc.order.pojo.vo.OrderVO;
@@ -20,6 +21,8 @@ import com.imooc.user.pojo.UserAddress;
 import com.imooc.order.service.OrderService;
 import com.imooc.user.service.AddressService;
 import com.imooc.utils.DateUtil;
+import com.imooc.utils.JsonUtils;
+import com.imooc.utils.RabbitSender;
 import org.n3r.idworker.Sid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -31,6 +34,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -55,6 +59,9 @@ public class OrderServiceImpl implements OrderService {
 //
 //    @Autowired
 //    private RestTemplate restTemplate;
+
+      @Autowired
+      private RabbitSender rabbitSender;
 
     @Autowired
     private Sid sid;
@@ -172,7 +179,22 @@ public class OrderServiceImpl implements OrderService {
 
             // 2.4 在用户提交订单以后，规格表中需要扣除库存
             // 等学习fegin再优化
-            itemService.decreaseItemSpecStock(itemSpecId, buyCounts);
+            /**
+             * 防止超卖两种解决方案
+             * 1、redis/zk的分布式锁：在减库存那里加锁，防止超卖,无法消峰
+             * itemService.decreaseItemSpecStock(itemSpecId, buyCounts);
+             * 2、mq的消息队列：
+             *    原理：订单中心的减库存的信息放入mq中，商品中心的减库存服务消费
+             *    优点：1、实现order和item两个微服务的服务解耦；
+             *         2、秒杀场景高并发用于消峰；
+             *        （3、当库存可以后续补上时，没有库存也可以继续让客户进行下单后面的操作；）
+             */
+
+            this.decreaseItemSpecStock(itemSpecId, buyCounts);//消息队列
+
+            //itemService.decreaseItemSpecStock(itemSpecId, buyCounts);//分布式锁
+
+
 //            url = String.format("http://%s:%s/item-api/decreaseStock"+
 //                            "?specId=%s&buyCounts=%s",
 //                    instanceItem.getHost(),
@@ -206,6 +228,20 @@ public class OrderServiceImpl implements OrderService {
         orderVO.setToBeRemovedShopcatdList(toBeRemovedShopcatdList);
 
         return orderVO;
+    }
+
+
+    private void decreaseItemSpecStock(String itemSpecId, Integer buyCounts){
+        DecreaseStock decreaseStock = DecreaseStock.builder()
+                .ItemSpecId(itemSpecId)
+                .buyCounts(buyCounts).build();
+        String msg = JsonUtils.objectToJson(decreaseStock);
+
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("exchange","exchange-decreaseStock");
+        map.put("routingKey","routingKey.decreaseStock");
+
+        rabbitSender.send(msg,map);
     }
 
     /**

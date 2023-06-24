@@ -1,6 +1,7 @@
 package com.imooc.user.controller;
 
 import com.imooc.controller.BaseController;
+import com.imooc.pojo.IMOOCJSONResult;
 import com.imooc.pojo.ShopcartBO;
 import com.imooc.user.UserAppProperties;
 import com.imooc.user.pojo.Users;

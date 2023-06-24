@@ -22,6 +22,20 @@ spring:
     #    password: imooc
     #    cluster:
     #      nodes: 192.168.1.201:6379,192.168.1.202:6379,192.168.1.203:6379,192.168.1.204:6379,192.168.1.205:6379,192.168.1.206:6379
+  # 连接云服务器集群rabbitmq
+  rabbitmq:
+    addresses: 43.154.106.172:5672,43.154.166.55:5672,43.154.33.30:5672
+    connection-timeout: 15000
+    listener:
+      simple:
+        acknowledge-mode: manual
+        concurrency: 5
+        max-concurrency: 10
+        prefetch: 1
+    password: admin
+    username: admin
+    virtual-host: /
+
 
 mybatis:
   configuration:

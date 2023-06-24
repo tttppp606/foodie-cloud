@@ -4,13 +4,91 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f47bcf3-c45e-45df-a877-03305490a964" name="变更" comment="zk实现分布式锁">
-      <change afterPath="$PROJECT_DIR$/common/foodie-cloud-common/src/main/java/com/imooc/utils/RedisLock.java" afterDir="false" />
+    <list default="true" id="4f47bcf3-c45e-45df-a877-03305490a964" name="变更" comment="redis和redission实现分布式锁">
+      <change afterPath="$PROJECT_DIR$/common/foodie-cloud-common/src/main/java/com/imooc/utils/RabbitSender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/foodie-cloud-shared-pojo/src/main/java/com/imooc/pojo/DecreaseStock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-api/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-api/src/main/java/com/bfxy/rabbit/api/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-api/src/main/java/com/bfxy/rabbit/api/MessageBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-api/src/main/java/com/bfxy/rabbit/api/MessageListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-api/src/main/java/com/bfxy/rabbit/api/MessageProducer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-api/src/main/java/com/bfxy/rabbit/api/MessageType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-api/src/main/java/com/bfxy/rabbit/api/SendCallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-api/src/main/java/com/bfxy/rabbit/api/exception/MessageException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-api/src/main/java/com/bfxy/rabbit/api/exception/MessageRunTimeException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-common/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-common/src/main/java/com/bfxy/rabbit/common/convert/GenericMessageConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-common/src/main/java/com/bfxy/rabbit/common/convert/RabbitMessageConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-common/src/main/java/com/bfxy/rabbit/common/mybatis/handler/MessageJsonTypeHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-common/src/main/java/com/bfxy/rabbit/common/serializer/Serializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-common/src/main/java/com/bfxy/rabbit/common/serializer/SerializerFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-common/src/main/java/com/bfxy/rabbit/common/serializer/impl/JacksonSerializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-common/src/main/java/com/bfxy/rabbit/common/serializer/impl/JacksonSerializerFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-common/src/main/java/com/bfxy/rabbit/common/util/FastJsonConvertUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java/com/bfxy/rabbit/producer/autoconfigure/RabbitProducerAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java/com/bfxy/rabbit/producer/broker/AsyncBaseQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java/com/bfxy/rabbit/producer/broker/MessageHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java/com/bfxy/rabbit/producer/broker/MessageHolderAyncQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java/com/bfxy/rabbit/producer/broker/ProducerClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java/com/bfxy/rabbit/producer/broker/RabbitBroker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java/com/bfxy/rabbit/producer/broker/RabbitBrokerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java/com/bfxy/rabbit/producer/broker/RabbitTemplateContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java/com/bfxy/rabbit/producer/config/database/BrokerMessageConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java/com/bfxy/rabbit/producer/config/database/RabbitProducerDataSourceConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java/com/bfxy/rabbit/producer/config/database/RabbitProducerMyBatisConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java/com/bfxy/rabbit/producer/config/database/RabbitProducerMybatisMapperScanerConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java/com/bfxy/rabbit/producer/constant/BrokerMessageConst.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java/com/bfxy/rabbit/producer/constant/BrokerMessageStatus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java/com/bfxy/rabbit/producer/entity/BrokerMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java/com/bfxy/rabbit/producer/mapper/BrokerMessageMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java/com/bfxy/rabbit/producer/service/MessageStoreService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java/com/bfxy/rabbit/producer/task/RetryMessageDataflowJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/resources/META-INF/spring.factories" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/resources/mapper/BrokerMessageMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/resources/rabbit-producer-message-schema.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-task/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-task/src/main/java/com/bfxy/rabbit/task/annotation/ElasticJobConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-task/src/main/java/com/bfxy/rabbit/task/annotation/EnableElasticJob.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-task/src/main/java/com/bfxy/rabbit/task/autoconfigure/JobParserAutoConfigurartion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-task/src/main/java/com/bfxy/rabbit/task/autoconfigure/JobZookeeperProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-task/src/main/java/com/bfxy/rabbit/task/enums/ElasticJobTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-task/src/main/java/com/bfxy/rabbit/task/parser/ElasticJobConfParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/rabbit-task/src/main/resources/META-INF/spring.factories" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/test/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/test/src/main/java/com/bfxy/rabbit/Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/test/src/main/java/com/bfxy/rabbit/MainConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/test/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/rabbit-parent/test/src/test/java/com/bfxy/rabbit/ApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/item/foodie-item-service/src/main/java/com/imooc/item/service/impl/MqReceiveDecreaseStock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/java/com/imooc/order/test/MqTestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/foodie-cloud-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/foodie-cloud-common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/foodie-cloud-shared-pojo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/foodie-cloud-shared-pojo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/foodie-cloud-web-components/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/foodie-cloud-web-components/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/item/foodie-item-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/item/foodie-item-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/item/foodie-item-service/src/main/java/com/imooc/item/service/impl/ItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/item/foodie-item-service/src/main/java/com/imooc/item/service/impl/ItemServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/item/foodie-item-web/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/item/foodie-item-web/src/main/resources/application-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/item/foodie-item-web/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/domain/item/foodie-item-web/src/main/resources/application-prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/fallback/itemservice/ItemCommentsFeignClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/fallback/itemservice/ItemCommentsFeignClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-service/src/main/java/com/imooc/order/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-web/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/java/com/imooc/order/controller/OrdersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/java/com/imooc/order/controller/OrdersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/domain/order/foodie-order-web/src/main/resources/application-dev.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/java/com/imooc/user/controller/PassportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/java/com/imooc/user/controller/PassportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/2023-06-05.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +112,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
+        <option name="localRepository" value="$MAVEN_REPOSITORY$" />
         <option name="mavenHome" value="$USER_HOME$/software/apache-maven-3.8.8" />
         <option name="useMavenConfig" value="true" />
         <option name="userSettingsFile" value="$USER_HOME$/software/apache-maven-3.8.8/conf/settings.xml" />
@@ -53,42 +132,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/lichuang/IdeaProjects/foodie-cloud/domain/search/foodie-search-web/src/main/resources&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.4229885&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;0db98f4688bd60411582d8b6e0ab075a&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "/Users/lichuang/IdeaProjects/foodie-cloud/common",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.4229885",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "e6b890b3ffa15ee9500bd36905491c87",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/common" />
       <recent name="$PROJECT_DIR$/domain/search/foodie-search-web/src/main/resources" />
       <recent name="$PROJECT_DIR$/domain/search/foodie-search-web" />
       <recent name="$PROJECT_DIR$/platform/gateway/src/main/resources" />
       <recent name="$PROJECT_DIR$/domain/user/foodie-user-web/src/main/resources" />
-      <recent name="$PROJECT_DIR$/platform/registry-center2/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/domain/search" />
@@ -98,14 +178,14 @@
       <recent name="com.imooc.order.service.impl" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.imooc.order.test" />
+      <recent name="com.imooc.item.service.impl" />
       <recent name="com.imooc.utils" />
       <recent name="com.imooc.item.test" />
       <recent name="com.imooc.search.controller" />
-      <recent name="com.imooc.search" />
-      <recent name="com.imooc.search.service" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ItemApplication">
+  <component name="RunManager" selected="Spring Boot.OrderApplication">
     <configuration name="CartApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="foodie-cart-web" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.imooc.cart.CartApplication" />
@@ -230,8 +310,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.GatewayApp" />
         <item itemvalue="Spring Boot.EurekaServer2Application" />
+        <item itemvalue="Spring Boot.GatewayApp" />
         <item itemvalue="Spring Boot.ConfigServerApp" />
         <item itemvalue="Spring Boot.HystrixDashboardApp" />
         <item itemvalue="Spring Boot.ConfigServerApp" />
@@ -262,7 +342,9 @@
       <workItem from="1686763232786" duration="9211000" />
       <workItem from="1686843413630" duration="276000" />
       <workItem from="1686843872270" duration="12422000" />
-      <workItem from="1687234420662" duration="14000000" />
+      <workItem from="1687234420662" duration="39647000" />
+      <workItem from="1687453868652" duration="2739000" />
+      <workItem from="1687542928852" duration="7951000" />
     </task>
     <task id="LOCAL-00001" summary="架构师课程项目微服务改造">
       <created>1684211560835</created>
@@ -334,7 +416,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687242921823</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="redis和redission实现分布式锁">
+      <created>1687263541057</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1687263541057</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,6 +450,7 @@
     <MESSAGE value="bus结合config改进项目&#10;rabbitmq连接集群" />
     <MESSAGE value="1、配置文件dev和prod分离&#10;2、gateway添加search路由" />
     <MESSAGE value="zk实现分布式锁" />
-    <option name="LAST_COMMIT_MESSAGE" value="zk实现分布式锁" />
+    <MESSAGE value="redis和redission实现分布式锁" />
+    <option name="LAST_COMMIT_MESSAGE" value="redis和redission实现分布式锁" />
   </component>
 </project>

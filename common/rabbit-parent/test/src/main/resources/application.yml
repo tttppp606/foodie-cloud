@@ -1,0 +1,48 @@
+elastic:
+    job:
+        zk:
+            namespace: elastic-job
+            serverLists: 43.154.87.31:2181
+rabbit:
+    producer:
+        druid:
+            jdbc:
+                driver-class-name: com.mysql.cj.jdbc.Driver
+                filters: stat,wall,log4j
+                initialSize: 5
+                maxActive: 100
+                maxPoolPreparedStatementPerConnectionSize: 20
+                maxWait: 60000
+                minEvictableIdleTimeMillis: 300000
+                minIdle: 1
+                password: 1990425Lc
+                poolPreparedStatements: true
+                testOnBorrow: false
+                testOnReturn: false
+                testWhileIdle: true
+                timeBetweenEvictionRunsMillis: 60000
+                url: jdbc:mysql://43.154.87.31:3306/broker_message?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+                useGlobalDataSourceStat: true
+                username: root
+                validationQuery: SELECT 1 FROM DUAL
+            type: com.alibaba.druid.pool.DruidDataSource
+server:
+    port: 8001
+    servlet:
+        context-path: /test
+spring:
+    application:
+        name: test
+    rabbitmq:
+        addresses: 43.154.106.172:5672,43.154.166.55:5672,43.154.33.30:5672
+        connection-timeout: 15000
+        listener:
+            simple:
+                auto-startup: false
+        password: admin
+        publisher-confirms: true
+        publisher-returns: true
+        template:
+            mandatory: true
+        username: admin
+        virtual-host: /

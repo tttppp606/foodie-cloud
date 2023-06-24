@@ -7,6 +7,18 @@
     <file url="file://$PROJECT_DIR$/common/foodie-cloud-shared-pojo/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common/foodie-cloud-web-components/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/common/foodie-cloud-web-components/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/rabbit-parent/rabbit-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/rabbit-parent/rabbit-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/rabbit-parent/rabbit-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/rabbit-parent/rabbit-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/rabbit-parent/rabbit-core-producer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/rabbit-parent/rabbit-task/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/rabbit-parent/rabbit-task/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/rabbit-parent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/rabbit-parent/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/rabbit-parent/test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common/rabbit-parent/test/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/domain/cart/foodie-cart-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/domain/cart/foodie-cart-api/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/domain/cart/foodie-cart-service/src/main/java" charset="UTF-8" />

@@ -41,6 +41,14 @@
             <artifactId>redisson</artifactId>
             <version>3.11.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>foodie-cloud-shared-pojo</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+
     </dependencies>
 
 </project>

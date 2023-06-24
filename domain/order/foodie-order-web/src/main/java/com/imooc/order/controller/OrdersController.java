@@ -11,7 +11,7 @@ import com.imooc.order.pojo.vo.MerchantOrdersVO;
 import com.imooc.order.pojo.vo.OrderVO;
 import com.imooc.order.service.OrderService;
 import com.imooc.utils.CookieUtils;
-import com.imooc.utils.IMOOCJSONResult;
+import com.imooc.pojo.IMOOCJSONResult;
 import com.imooc.utils.JsonUtils;
 import com.imooc.utils.RedisOperator;
 import io.swagger.annotations.Api;
